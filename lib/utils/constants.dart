@@ -17,14 +17,15 @@ TextStyle headingText(Color color,double size,{Color shadowColor = Colors.white}
     fontSize: size,
     color: color,
     shadows: [
-     Shadow(color:shadowColor,offset: const Offset(1.5, 1),blurRadius: 5) 
+     Shadow(color:shadowColor,offset: const Offset(1, 1),blurRadius: 5) 
     ],
   );
 }
-TextStyle appText(Color color,double size) {
+TextStyle appText(Color color,double size,{FontWeight weight = FontWeight.w600}) {
   return TextStyle(
     fontFamily: 'Kodchasan',
     fontSize: size,
     color: color,
+    fontWeight: weight
   );
 }
