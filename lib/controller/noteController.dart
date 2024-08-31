@@ -8,10 +8,9 @@ class NoteController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> storeToFireStore(
-      int noteId,
+      String noteId,
       String noteTitle,
       String noteDecription,
-      String pirority,
       dynamic createdAt,
       dynamic updatedAt) async {
 
@@ -20,7 +19,6 @@ class NoteController extends GetxController {
         noteId: noteId,
         noteTitle: noteTitle,
         noteDecription: noteDecription,
-        pirority: pirority,
         createdAt: DateTime.now(),
         updatedAt: DateTime.now());
 
