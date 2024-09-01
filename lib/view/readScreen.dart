@@ -67,7 +67,7 @@ class ReadScreen extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
-                  "No Data Found Press Add Note Button To Add Notes",
+                  "No Data Found",
                   style: appText(AppConstants.appErrorColor, 24),
                 ),
               ),
