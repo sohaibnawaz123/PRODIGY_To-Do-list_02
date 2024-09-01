@@ -17,8 +17,8 @@ class ReadScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(AddNotes(
-            appTitle: 'Add Notes',
+          Get.to(const AddNotes(
+            appTitle: 'Add Notes', noteId: '',
           ));
         },
         backgroundColor: AppConstants.appBARbg,
@@ -42,7 +42,7 @@ class ReadScreen extends StatelessWidget {
       ),
       body: SizedBox(
           child: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('Notes').snapshots(),
+        stream: FirebaseFirestore.instance.collection('Notes').orderBy('createdAt', descending: true).snapshots(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
             return Center(
@@ -87,7 +87,7 @@ class ReadScreen extends StatelessWidget {
                       createdAt: noteData['createdAt'],
                       updatedAt: noteData['updatedAt']);
                   return GestureDetector(
-                    onTap: () => Get.to(AddNotes(appTitle: 'Edit Note')),
+                    onTap: () => Get.to(AddNotes(appTitle: 'Edit Note', noteId: notesModel.noteId,)),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: ClayContainer(
