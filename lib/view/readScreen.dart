@@ -9,9 +9,9 @@ import 'package:todo_list_firebase/model/notemodel.dart';
 import 'package:todo_list_firebase/utils/constants.dart';
 import 'package:todo_list_firebase/view/notesAddScreen.dart';
 
+
 class ReadScreen extends StatelessWidget {
   const ReadScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,6 +86,7 @@ class ReadScreen extends StatelessWidget {
                       noteDecription: noteData['noteDecription'],
                       createdAt: noteData['createdAt'],
                       updatedAt: noteData['updatedAt']);
+                      
                   return GestureDetector(
                     onTap: () => Get.to(AddNotes(appTitle: 'Edit Note', noteId: notesModel.noteId,)),
                     child: Padding(
@@ -129,19 +130,16 @@ class ReadScreen extends StatelessWidget {
                               ),
                               Expanded(
                                 flex: 1,
-                                child: Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      FirebaseFirestore.instance
-                                          .collection('Notes')
-                                          .doc(notesModel.noteId)
-                                          .delete();
-                                    },
-                                    child: Icon(
-                                      Icons.delete,
-                                      color: AppConstants.appErrorColor,
-                                    ),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    FirebaseFirestore.instance
+                                        .collection('Notes')
+                                        .doc(notesModel.noteId)
+                                        .delete();
+                                  },
+                                  child: Icon(
+                                    Icons.delete,
+                                    color: AppConstants.appErrorColor,
                                   ),
                                 ),
                               )

@@ -64,7 +64,7 @@ class AddNotesState extends State<AddNotes> {
                   descriptionController.text,
                   DateTime.now(),
                 );
-                Get.offAll(const ReadScreen());
+                Get.offAll(ReadScreen());
               } else {
                 sendData();
               }
